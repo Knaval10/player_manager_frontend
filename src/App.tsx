@@ -1,14 +1,25 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  Route,
+  RouterProvider,
+  Routes,
+} from "react-router-dom";
 import LandingPage from "./pages/Home";
+import Layout from "./components/layout";
 const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  const routes = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <Layout>
+          <LandingPage />
+        </Layout>
+      ),
+    },
+  ]);
+  return <RouterProvider router={routes} />;
 };
 
 export default App;
