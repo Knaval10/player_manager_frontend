@@ -17,9 +17,9 @@ const LandingPage = () => {
               Streamline your football management process with our powerful
               tools
             </p>
-            <button className="bg-[grey] rounded-xl px-3 py-2">
+            {/* <button className="bg-[grey] rounded-xl px-3 py-2">
               Get Started
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

@@ -21,21 +21,36 @@ const Heda = () => {
       <div className="relative w-32 h-32 flex items-center justify-center">
         <button
           onClick={toggleMenu}
-          className={`w-20 h-20 border-4 border-teal-500 rounded-full text-white flex items-center justify-center shadow-lg text-3xl absolute z-20 ${
+          className={`w-16 h-16 border-4 border-teal-500 rounded-full text-white flex flex-col items-center justify-center shadow-lg text-3xl absolute z-20 ${
             isOpen ? " top-[105px]" : "top-10"
           }`}
         >
-          {/* ☰ */}
-          <img src={logo} alt="" className="rounded-full h-full w-full" />
+          <span
+            className={`block w-8 h-1 bg-teal-500 rounded transition-transform duration-500 ${
+              isOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+          ></span>
+          <span
+            className={`block w-8 h-1 bg-teal-500 rounded my-1 transition-opacity duration-500 ${
+              isOpen ? "opacity-0" : "opacity-100"
+            }`}
+          ></span>
+          <span
+            className={`block w-8 h-1 bg-teal-500 rounded transition-transform duration-500 ${
+              isOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          ></span>
+          {/* <img src={logo} alt="" className="rounded-full h-full w-full" /> */}
         </button>
 
         <ul
           className={`absolute w-full h-full flex justify-center items-center z-10 ${
-            isOpen ? "top-20 " : "top-0"
+            isOpen ? "top-20" : "top-0"
           }`}
         >
           {navData.map((item, index) => {
             const angle = (-180 / (navData.length - 1)) * index - 90;
+            // const angle = (360 / navData?.length) * index;
             const radius = 90;
 
             const x = radius * Math.cos((angle * Math.PI) / 180);
