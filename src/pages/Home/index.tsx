@@ -3,7 +3,7 @@ const LandingPage = () => {
   return (
     <div className="">
       <div
-        className="relative h-[calc(100vh-56px)] md:h-[calc(100vh-64px)] bg-cover bg-center"
+        className="relative h-screen bg-cover bg-center"
         style={{
           backgroundImage: `url(${BGimage})`,
         }}

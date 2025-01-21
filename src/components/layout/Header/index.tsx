@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-
+import logo from "../../../assets/FutsalMgmt.png";
+import { navData } from "../../../constants/navData";
+import { Link } from "react-router-dom";
 const Heda = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -19,15 +21,22 @@ const Heda = () => {
       <div className="relative w-32 h-32 flex items-center justify-center">
         <button
           onClick={toggleMenu}
-          className="w-16 h-16 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-lg text-3xl absolute top-[115px] z-20"
+          className={`w-20 h-20 border-4 border-teal-500 rounded-full text-white flex items-center justify-center shadow-lg text-3xl absolute z-20 ${
+            isOpen ? " top-[105px]" : "top-10"
+          }`}
         >
-          ☰
+          {/* ☰ */}
+          <img src={logo} alt="" className="rounded-full h-full w-full" />
         </button>
 
-        <ul className="absolute top-20 w-full h-full flex justify-center items-center">
-          {menuItems.map((item, index) => {
-            const angle = (-180 / (menuItems.length - 1)) * index - 90;
-            const radius = 100;
+        <ul
+          className={`absolute w-full h-full flex justify-center items-center z-10 ${
+            isOpen ? "top-20 " : "top-0"
+          }`}
+        >
+          {navData.map((item, index) => {
+            const angle = (-180 / (navData.length - 1)) * index - 90;
+            const radius = 90;
 
             const x = radius * Math.cos((angle * Math.PI) / 180);
             const y = radius * Math.sin((angle * Math.PI) / 180);
@@ -41,12 +50,15 @@ const Heda = () => {
                     ? `translate(${x}px, ${y}px)`
                     : `translate(0, 0)`,
                   opacity: isOpen ? 1 : 0,
-                  transitionDelay: `${index * 50}ms`,
+                  transitionDelay: `${index * 10}ms`,
                 }}
               >
-                <div className="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg text-xl">
+                <Link
+                  to={item.link}
+                  className="w-14 h-14 rounded-full bg-green-600 text-white flex items-center justify-center shadow-lg text-xl"
+                >
                   {item.icon}
-                </div>
+                </Link>
               </li>
             );
           })}
