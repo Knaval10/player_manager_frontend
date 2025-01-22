@@ -9,6 +9,7 @@ import {
 import LandingPage from "./pages/Home";
 import Layout from "./components/layout";
 import Login from "./pages/Login";
+import PlayersProfile from "./pages/PlayersProfile";
 const App = () => {
   const routes = createBrowserRouter([
     {
@@ -24,6 +25,14 @@ const App = () => {
       element: (
         <Layout>
           <Login />
+        </Layout>
+      ),
+    },
+    {
+      path: "/playerProfile",
+      element: (
+        <Layout>
+          <PlayersProfile />
         </Layout>
       ),
     },
