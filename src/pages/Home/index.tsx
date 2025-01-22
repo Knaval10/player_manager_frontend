@@ -4,10 +4,13 @@ const LandingPage = () => {
     <div className="">
       <div
         className="relative h-screen bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${BGimage})`,
-        }}
+        // style={{
+        //   backgroundImage: `url(${BGimage})`,
+        // }}
       >
+        {/* <div className="h-full"> */}
+        <img src={BGimage} alt="" className="h-full" />
+        {/* </div> */}
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="text-center text-white px-4">
             <h1 className="text-3xl md:text-5xl font-bold mb-4">
