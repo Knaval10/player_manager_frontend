@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import LandingPage from "./pages/Home";
 import Layout from "./components/layout";
+import Login from "./pages/Login";
 const App = () => {
   const routes = createBrowserRouter([
     {
@@ -15,6 +16,14 @@ const App = () => {
       element: (
         <Layout>
           <LandingPage />
+        </Layout>
+      ),
+    },
+    {
+      path: "/login",
+      element: (
+        <Layout>
+          <Login />
         </Layout>
       ),
     },
