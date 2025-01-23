@@ -26,7 +26,7 @@ const LandingPage = () => {
       distanceSwiped = swipeThreshold;
       setIsGoal(true);
       setTimeout(() => {
-        navigate("/about");
+        navigate("/login");
       }, navigationDelay);
     }
 
