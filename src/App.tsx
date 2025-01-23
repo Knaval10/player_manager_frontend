@@ -17,41 +17,41 @@ const App = () => {
     {
       path: "/",
       element: (
-        <Layout>
-          <LandingPage />
-        </Layout>
+        // <Layout>
+        <LandingPage />
+        // </Layout>
       ),
     },
     {
       path: "/login",
       element: (
-        <Layout>
-          <Login />
-        </Layout>
+        // <Layout>
+        <Login />
+        // </Layout>
       ),
     },
     {
       path: "/playerProfile",
       element: (
-        <Layout>
-          <PlayersProfile />
-        </Layout>
+        // <Layout>
+        <PlayersProfile />
+        // </Layout>
       ),
     },
     {
       path: "/signIn",
       element: (
-        <Layout>
-          <SignIn />
-        </Layout>
+        // <Layout>
+        <SignIn />
+        // </Layout>
       ),
     },
     {
       path: "/RegistrationPage",
       element: (
-        <Layout>
-          <RegistrationPage />
-        </Layout>
+        // <Layout>
+        <RegistrationPage />
+        // </Layout>
       ),
     },
   ]);

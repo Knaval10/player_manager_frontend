@@ -22,7 +22,7 @@ const LandingPage = () => {
     const currentDistance = e.touches[0].clientX;
     let distanceSwiped = currentDistance - startX;
     if (distanceSwiped < 0) distanceSwiped = 0;
-    if (distanceSwiped === swipeThreshold) {
+    if (distanceSwiped >= swipeThreshold) {
       distanceSwiped = swipeThreshold;
       setIsGoal(true);
       setTimeout(() => {
@@ -71,9 +71,9 @@ const LandingPage = () => {
         </div>
         <div className="absolute bottom-10">
           {isGoal ? (
-            <p className="border border-[#D4634A] rounded-[12px] w-[320px] bg-[#F4A58A] text-white text-center text-sm px-4 py-2">
+            <div className="border border-[#D4634A] rounded-[12px] w-[320px] bg-[#F4A58A] text-white text-center text-sm px-4 py-2">
               <div className="animate-bounce text-2xl">Goal</div>
-            </p>
+            </div>
           ) : (
             <div
               className={`flex items-center text-center gap-2 px-4 py-2 border border-[#D4634A] rounded-[12px] w-[320px]`}
