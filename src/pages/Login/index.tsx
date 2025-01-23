@@ -1,50 +1,87 @@
-import { SubmitHandler, useForm } from "react-hook-form";
+import BGimage from "../../assets/background.png";
+import AppleLogo from "../../assets/AppleLogo.png";
+import GoogleLogo from "../../assets/GoogleLogo.png";
+import FacebookLogo from "../../assets/FacebookLogo.png";
 
 const Login = () => {
-  type Inputs = {
-    Email: string;
+
+  type SocialMedia = {
+    name: string;
+    logo: string;
+    link: string;
   };
-  const {
-    // handleSubmit,
-    register,
-    // reset,
-    formState: { errors },
-  } = useForm<Inputs>();
+
+  const registerWithSocialMedia: SocialMedia[] = [
+    {
+      name: "Apple",
+      logo: AppleLogo,
+      link: "https://apple.com",
+    },
+    {
+      name: "Google",
+      logo: GoogleLogo,
+      link: "https://google.com",
+    },
+    {
+      name: "Facebook",
+      logo: FacebookLogo,
+      link: "https://facebook.com",
+    },
+  ];
   return (
-    <div className="w-full h-[100vh] flex justify-center items-center">
-      <div className=" h-[466px] w-[350px] md:h-[466px] md:w-[504px] border-[2px] border-[#78C5F129] rounded-[50px] bg-gradient-to-b from-[#78C5F129] to-[#E8E8E83B] shadow-[#0D092840] backdrop-blur-2xl transition-all ">
-        <div className="w-full flex flex-col justify-center items-center gap-[47px] h-full bg-[#00000014] rounded-[50px]">
-          <h1 className="font-[700] text-[25px] md:text-[40px] text-[#FFFFFF] ">
-            Login Page
-          </h1>
-          <form
-            // onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col w-full px-[20px]"
-          >
-            <div className="flex flex-col justify-center gap-[20px]">
-              <div className="flex justify-center">
-                <input
-                  aria-label="E-mail"
-                  {...register("Email", {
-                    required: "This field is required",
-                  })}
-                  placeholder="E-mail"
-                  className="rounded-[10px] h-[68px] w-full md:w-[443px] border-[2px] border-[#B1AEC2] bg-transparent font-[500] text-[15px] px-2"
+    <div
+      className="h-[100vh] w-full flex items-center justify-center "
+      style={{
+        backgroundImage: `url(${BGimage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="flex flex-col justify-center items-center max-w-[467px]">
+        <h1 className=" bg-gradient-to-r from-[#EF8065] via-[#FFC266] to-[#F7D403] bg-clip-text text-transparent font-bold text-4xl leading-[1.5]">
+          Gamee On, Team Ready!
+        </h1>
+
+        <h2 className="py-5 font-bold text-[16px] leading-[20.8px] text-[white]">
+          YOUR ULTIMATE <span className="text-[#FFC266]">FUTSAL TEAM MANAGEMENT SOLUTION</span>
+        </h2>
+        <p className="text-white text-[16px] text-center font-bold align-middle leading-[21px]">
+          Take control of your futsal experience with our app! Whether you're a manager organizing matches and schedules or a player tracking your team's performance, we’ve got you covered. Create your team, manage game times, and stay connected—all in one place.
+        </p>
+        <div className="flex flex-col items-center justify-center gap-[34px] w-full pt-[34px]">
+          <a href="/signIn" className="text-center content-center rounded-[12px] h-[68px] w-full bg-[#EF8065] font-[500] text-[16px]  text-[white]">
+           Login
+          </a>
+        </div>
+
+        <span className="text-white pt-4">OR</span>
+        <div className="w-full flex flex-col gap-4 pt-4">
+          {registerWithSocialMedia.map((item, index) => (
+            <a
+              href={item.link}
+              target="_blank"
+              key={index}
+              className="flex justify-center border border-[#F4A58A] hover:bg-[#F4A58A]  items-center py-[8px] rounded-[24px]"
+            >
+              <div className="flex items-center w-[225px] gap-2">
+                <img
+                  src={item.logo}
+                  alt={`${item.name} logo`}
+                  className="h-[40.26px] w-[40.26px]"
                 />
-                {errors.Email && (
-                  <p className="text-red-500 text-sm">{errors.Email.message}</p>
-                )}
+                <h1 className="text-[14px] text-white font-medium">
+                  Continue with {item.name}
+                </h1>
               </div>
-            </div>
-            <div className="flex justify-center pt-[65px]">
-              <button
-                type="submit"
-                className="bg-[#65E8BF] text-[#291F6F] font-[500] text-[20px] rounded-[20px] h-[50px] md:h-[85.31px] w-[444px]"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+            </a>
+          ))}
+        </div>
+        <div className="pt-[32px] text-white">
+          Not a member?
+          <a href="/RegistrationPage" className="text-[#ED6B4E]">
+            Sign up
+          </a>
         </div>
       </div>
     </div>
