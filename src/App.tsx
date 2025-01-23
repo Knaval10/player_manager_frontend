@@ -10,6 +10,8 @@ import LandingPage from "./pages/Home";
 import Layout from "./components/layout";
 import Login from "./pages/Login";
 import PlayersProfile from "./pages/PlayersProfile";
+import SignIn from "./pages/Login/signIn";
+import RegistrationPage from "./pages/RegistrationPage";
 const App = () => {
   const routes = createBrowserRouter([
     {
@@ -33,6 +35,22 @@ const App = () => {
       element: (
         <Layout>
           <PlayersProfile />
+        </Layout>
+      ),
+    },
+    {
+      path: "/signIn",
+      element: (
+        <Layout>
+          <SignIn />
+        </Layout>
+      ),
+    },
+    {
+      path: "/RegistrationPage",
+      element: (
+        <Layout>
+          <RegistrationPage />
         </Layout>
       ),
     },
