@@ -48,29 +48,31 @@ const SignIn = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="flex flex-col justify-center items-center ">
+      <div className="flex flex-col justify-center items-center px-[30px]">
         <h1 className=" bg-gradient-to-r from-[#EF8065] via-[#FFC266] to-[#F7D403] bg-clip-text text-transparent font-bold text-4xl leading-[1.5]">
           Sign In
         </h1>
 
-        <h2 className="py-5 font-bold text-[16px] leading-[20.8px] text-[#FFC266]">
+        <h2 className="py-5 font-bold text-[16px] leading-[20.8px] text-[#FFC266] text-center">
           ENTER YOUR EMAIL ADDRESS AND PASSWORD
         </h2>
         <div className="flex flex-col items-center justify-center gap-[34px]">
-          <label className="flex justify-center">
+          <label className="flex justify-center flex-col">
+            <label htmlFor="" className="text-white">E-mail</label>
             <input
               aria-label="E-mail"
               {...register("Email", {
                 required: "This field is required",
               })}
               placeholder="Email address"
-              className="rounded-[12px] h-[68px] w-full md:w-[443px] border border-[#EF8065] bg-transparent font-[500] text-[15px] px-9 text-[#EF8065]"
+              className="rounded-[12px] h-[56px] w-full border border-[#EF8065] bg-transparent font-[500] text-[15px] px-9 text-[#EF8065]"
             />
             {errors.Email && (
               <p className="text-red-500 text-sm">{errors.Email.message}</p>
             )}
           </label>
-          <label className="flex justify-center">
+          <label className="flex justify-center flex-col">
+          <label htmlFor="" className="text-white">Password</label>
             <input
               type="password"
               {...register("Password", {
@@ -84,7 +86,7 @@ const SignIn = () => {
             )}
           </label>
           <div className="flex flex-col items-center justify-center gap-[34px] w-full">
-            <button className="text-center content-center rounded-[12px] h-[68px] w-full bg-[#EF8065] font-[500] text-[16px]  text-[white]">
+            <button className="text-center content-center rounded-[12px] h-[56px] w-full bg-[#EF8065] font-[500] text-[16px]  text-[white]">
               Log In
             </button>
           </div>
@@ -102,29 +104,29 @@ const SignIn = () => {
         </div>
         <span className="text-white">OR</span>
         <div className="w-full flex flex-col gap-4 pt-4">
-          {registerWithSocialMedia.map((item, index) => (
-            <a
-              href={item.link}
-              target="_blank"
-              key={index}
-              className="flex justify-center border border-[#F4A58A] hover:bg-[#F4A58A] items-center py-[8px] rounded-[24px]"
-            >
-              <div className="flex items-center w-[225px] gap-2">
+          <span className="text-[14px] text-white font-medium text-center">
+            Continue with
+          </span>
+          <div className="flex gap-2 justify-center">
+            {registerWithSocialMedia.map((item, index) => (
+              <a
+                href={item.link}
+                target="_blank"
+                key={index}
+                className="flex justify-center  hover:bg-[#F4A58A]  items-center py-[8px] rounded-[24px]"
+              >
                 <img
                   src={item.logo}
                   alt={`${item.name} logo`}
                   className="h-[40.26px] w-[40.26px]"
                 />
-                <h1 className="text-[14px] text-white font-medium">
-                  Continue with {item.name}
-                </h1>
-              </div>
-            </a>
-          ))}
+              </a>
+            ))}
+          </div>
         </div>
         <div className="pt-[32px] text-white">
           Not a member?
-          <a href="/RegistrationPage" className="text-[#ED6B4E]">
+          <a href="/register" className="text-[#ED6B4E]">
             Sign up
           </a>
         </div>

@@ -12,6 +12,9 @@ import Login from "./pages/Login";
 import PlayersProfile from "./pages/PlayersProfile";
 import SignIn from "./pages/Login/signIn";
 import RegistrationPage from "./pages/RegistrationPage";
+import ProfileForm from "./pages/RegistrationPage/ProfileForm";
+import GameDetails from "./pages/GamesDetails";
+import PrivateLayout from "./components/layout/PrivateLayout";
 const App = () => {
   const routes = createBrowserRouter([
     {
@@ -22,14 +25,14 @@ const App = () => {
         // </Layout>
       ),
     },
-    {
-      path: "/login",
-      element: (
-        // <Layout>
-        <Login />
-        // </Layout>
-      ),
-    },
+    // {
+    //   path: "/login",
+    //   element: (
+    //     // <Layout>
+    //     <Login />
+    //     // </Layout>
+    //   ),
+    // },
     {
       path: "/playerProfile",
       element: (
@@ -39,7 +42,7 @@ const App = () => {
       ),
     },
     {
-      path: "/signIn",
+      path: "/login",
       element: (
         // <Layout>
         <SignIn />
@@ -47,11 +50,27 @@ const App = () => {
       ),
     },
     {
-      path: "/RegistrationPage",
+      path: "/register",
       element: (
         // <Layout>
         <RegistrationPage />
         // </Layout>
+      ),
+    },
+    {
+      path: "/profile_form",
+      element: (
+        // <Layout>
+        <ProfileForm />
+        // </Layout>
+      ),
+    },
+    {
+      path: "/game_details",
+      element: (
+        <PrivateLayout>
+          <GameDetails />
+        </PrivateLayout>
       ),
     },
   ]);

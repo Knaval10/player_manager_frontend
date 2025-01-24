@@ -57,46 +57,53 @@ const RegistrationPage = () => {
           FILL THE FOLLOWING TO CREATE AN ACCOUNT
         </h2>
         <div className="flex flex-col items-center justify-center gap-[34px]">
-          <label className="flex justify-center">
+          <label className="flex justify-center flex-col">
+          <label htmlFor="" className="text-white">Full Name</label>
+
             <input
               aria-label="Name"
               {...register("Name", {
                 required: "This field is required",
               })}
               placeholder="Name"
-              className="rounded-[12px] h-[68px] w-full md:w-[443px] border border-[#EF8065] bg-transparent font-[500] text-[15px] px-9 text-[#EF8065]"
+              className="rounded-[12px] h-[56px] w-full md:w-[443px] border border-[#EF8065] bg-transparent font-[500] text-[15px] px-9 text-[#EF8065]"
             />
             {errors.Name && (
               <p className="text-red-500 text-sm">{errors.Name.message}</p>
             )}
           </label>
-          <label className="flex justify-center">
+          <label className="flex justify-center flex-col">
+          <label htmlFor="" className="text-white">E-Mail</label>
             <input
               aria-label="E-mail"
               {...register("Email", {
                 required: "This field is required",
               })}
               placeholder="Email address"
-              className="rounded-[12px] h-[68px] w-full md:w-[443px] border border-[#EF8065] bg-transparent font-[500] text-[15px] px-9 text-[#EF8065]"
+              className="rounded-[12px] h-[56px] w-full md:w-[443px] border border-[#EF8065] bg-transparent font-[500] text-[15px] px-9 text-[#EF8065]"
             />
             {errors.Email && (
               <p className="text-red-500 text-sm">{errors.Email.message}</p>
             )}
           </label>
-          <label className="flex justify-center">
+          <label className="flex justify-center flex-col">
+          <label htmlFor="" className="text-white">Password</label>
+
             <input
               type="password"
               {...register("Password", {
                 required: "This field is required",
               })}
               placeholder="Password"
-              className="rounded-[12px] h-[68px] w-full md:w-[443px] border border-[#EF8065] bg-transparent font-[500] text-[15px] px-9 text-[#EF8065]"
+              className="rounded-[12px] h-[56px] w-full md:w-[443px] border border-[#EF8065] bg-transparent font-[500] text-[15px] px-9 text-[#EF8065]"
             />
             {errors.Email && (
               <p className="text-red-500 text-sm">{errors.Email.message}</p>
             )}
           </label>
-          <label className="flex justify-center">
+          <label className="flex justify-center flex-col">
+          <label htmlFor="" className="text-white">Re-Enter Password</label>
+
             <input
               aria-label="Password"
               type="password"
@@ -104,43 +111,42 @@ const RegistrationPage = () => {
                 required: "This field is required",
               })}
               placeholder="Re-enter Password"
-              className="rounded-[12px] h-[68px] w-full md:w-[443px] border border-[#EF8065] bg-transparent font-[500] text-[15px] px-9 text-[#EF8065]"
+              className="rounded-[12px] h-[56px] w-full md:w-[443px] border border-[#EF8065] bg-transparent font-[500] text-[15px] px-9 text-[#EF8065]"
             />
             {errors.Email && (
               <p className="text-red-500 text-sm">{errors.Email.message}</p>
             )}
           </label>
           <div className="flex flex-col items-center justify-center gap-[34px] w-full">
-            <button
-              className="text-center content-center rounded-[12px] h-[68px] w-full bg-[#EF8065] font-[500] text-[16px]  text-[white]"
-            >
+            <button className="text-center content-center rounded-[12px] h-[56px] w-full bg-[#EF8065] font-[500] text-[16px]  text-[white]">
               Create an account
             </button>
           </div>
         </div>
-        <span className="text-white pt-[36px]">OR</span>
+        <span className="text-white pt-[20px]">OR</span>
         <div className="w-full flex flex-col gap-4 pt-4">
-          {registerWithSocialMedia.map((item, index) => (
-            <a
-              href={item.link}
-              target="_blank"
-              key={index}
-              className="flex justify-center border border-[#F4A58A] hover:bg-[#F4A58A]  items-center py-[8px] rounded-[24px]"
-            >
-              <div className="flex items-center w-[225px] gap-2">
-                <img
-                  src={item.logo}
-                  alt={`${item.name} logo`}
-                  className="h-[40.26px] w-[40.26px]"
-                />
-                <h1 className="text-[14px] text-white font-medium">
-                  Continue with {item.name}
-                </h1>
-              </div>
-            </a>
-          ))}
+          <span className="text-[14px] text-white font-medium text-center">
+            Continue with
+          </span>
+          <div className="flex gap-2 justify-center">
+            {registerWithSocialMedia.map((item, index) => (
+              <a
+                href={item.link}
+                target="_blank"
+                key={index}
+                className="flex justify-center  hover:bg-[#F4A58A]  items-center py-[8px] rounded-[24px]"
+              >
+                
+                  <img
+                    src={item.logo}
+                    alt={`${item.name} logo`}
+                    className="h-[40.26px] w-[40.26px]"
+                  />
+              </a>
+            ))}
+          </div>
         </div>
-        <div className="pt-[32px] text-white">
+        <div className="pt-[20px] text-white">
           Already a member?
           <a href="/login" className="text-[#ED6B4E]">
             Login In
