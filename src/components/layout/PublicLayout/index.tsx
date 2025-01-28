@@ -1,5 +1,5 @@
 import { Children } from "react";
-import Header from "./Header";
+import Header from "../AnimatedNav";
 // import Footer from "./Footer";
 
 const Layout = ({ children }: any) => {

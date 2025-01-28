@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../../../assets/FutsalMgmt.png";
 import { navData } from "../../../constants/navData";
 import { Link } from "react-router-dom";
-const Heda = () => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -83,4 +83,4 @@ const Heda = () => {
   );
 };
 
-export default Heda;
+export default Header;

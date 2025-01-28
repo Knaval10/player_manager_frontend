@@ -71,14 +71,18 @@ const LandingPage = () => {
         </div>
         <div className="absolute bottom-10">
           {isGoal ? (
-            <div className="border border-[#D4634A] rounded-[12px] w-[320px] bg-[#F4A58A] text-white text-center text-sm px-4 py-2">
-              <div className="animate-bounce text-2xl">Goal</div>
+            <div className="rounded-[12px] w-[320px] bg-gradient-to-r from-[#164704C4] to-[#1C5F02C4] text-white text-center text-sm px-4 py-2">
+              <div className="animate-bounce text-2xl">Goal!!!</div>
             </div>
           ) : (
             <div
-              className={`flex items-center text-center gap-2 px-4 py-2 border border-[#D4634A] rounded-[12px] w-[320px]`}
+              className={`flex items-center text-center gap-2 px-4 py-2 rounded-[12px] w-[320px]`}
               style={{
-                backgroundColor: `rgba(244, 165, 138, ${opacity / 100})`,
+                background: `linear-gradient(
+                  to right, 
+                  rgba(22, 71, 4, ${opacity / 100}), 
+                  rgba(28, 95, 2, ${opacity / 100})
+                )`,
               }}
             >
               <img

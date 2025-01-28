@@ -7,7 +7,7 @@ import {
   Routes,
 } from "react-router-dom";
 import LandingPage from "./pages/Home";
-import Layout from "./components/layout";
+import Layout from "./components/layout/PublicLayout";
 import Login from "./pages/Login";
 import PlayersProfile from "./pages/PlayersProfile";
 import SignIn from "./pages/Login/signIn";
