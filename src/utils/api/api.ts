@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { getApi, postApi } from "./requests";
 import { queries } from "./queries";
-import { postApi } from "./requests";
 
 export const loginFormMutation = () =>
   useMutation({
@@ -31,3 +31,9 @@ export const registerFormMutation = () => {
     },
   });
 };
+
+export const useFetchGameDetails = ({ query = "" }) =>
+  useQuery({
+    queryKey: [queries.FETCH_GAME_DETAILS, query],
+    queryFn: () => getApi(`/game`),
+  });
