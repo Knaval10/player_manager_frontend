@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import AppleLogo from "../../assets/AppleLogo.png";
 import GoogleLogo from "../../assets/GoogleLogo.png";
 import FacebookLogo from "../../assets/FacebookLogo.png";
+import { loginFormMutation } from "../../utils/api/api";
 
 const SignIn = () => {
   type Inputs = {
@@ -34,10 +35,23 @@ const SignIn = () => {
       link: "https://facebook.com",
     },
   ];
+
+  const { mutate } = loginFormMutation();
+
   const {
     register,
     formState: { errors },
+    handleSubmit,
   } = useForm<Inputs>();
+
+  const handleFormSubmit: SubmitHandler<Inputs> = (data) => {
+    const loginData: any = {
+      email: data.Email,
+      password: data.Password,
+    };
+    mutate(loginData);
+  };
+
   return (
     <div
       className="h-[100vh] w-full flex items-center justify-center"
@@ -56,9 +70,14 @@ const SignIn = () => {
         <h2 className="py-5 font-bold text-[16px] leading-[20.8px] text-[#FFC266] text-center">
           ENTER YOUR EMAIL ADDRESS AND PASSWORD
         </h2>
-        <div className="flex flex-col items-center justify-center gap-[34px]">
-          <label className="flex justify-center flex-col">
-            <label htmlFor="" className="text-white">E-mail</label>
+        <form
+          onSubmit={handleSubmit(handleFormSubmit)}
+          className="flex flex-col items-center justify-center gap-[34px]"
+        >
+          <div className="flex justify-center flex-col">
+            <label htmlFor="" className="text-white">
+              E-mail
+            </label>
             <input
               aria-label="E-mail"
               {...register("Email", {
@@ -70,9 +89,11 @@ const SignIn = () => {
             {errors.Email && (
               <p className="text-red-500 text-sm">{errors.Email.message}</p>
             )}
-          </label>
-          <label className="flex justify-center flex-col">
-          <label htmlFor="" className="text-white">Password</label>
+          </div>
+          <div className="flex justify-center flex-col">
+            <label htmlFor="" className="text-white">
+              Password
+            </label>
             <input
               type="password"
               {...register("Password", {
@@ -84,26 +105,29 @@ const SignIn = () => {
             {errors.Email && (
               <p className="text-red-500 text-sm">{errors.Email.message}</p>
             )}
-          </label>
+          </div>
           <div className="flex flex-col items-center justify-center gap-[34px] w-full">
-            <button className="text-center content-center rounded-[12px] h-[56px] w-full bg-[#EF8065] font-[500] text-[16px]  text-[white]">
+            <button
+              type="submit"
+              className="text-center content-center rounded-[12px] h-[56px] w-full bg-[#EF8065] font-[500] text-[16px]  text-[white]"
+            >
               Log In
             </button>
           </div>
-        </div>
-        <div className="flex w-full justify-between text-white pt-[26px]">
-          <label className="flex items-center gap-[10px]">
+        </form>
+        <section className="flex w-full justify-between text-white pt-[26px]">
+          <div className="flex items-center gap-[10px]">
             <input
               type="checkbox"
               {...register("rememberMe")}
               className="appearance-none border border-[#EF8065] bg-transparent h-[20px] w-[20px] rounded-md checked:bg-[green] checked:border-[#EF8065] focus:ring-2 focus:ring-[#EF8065] hover:cursor-pointer"
             />
             <span>Remember Me</span>
-          </label>
+          </div>
           <span>Forget Password?</span>
-        </div>
+        </section>
         <span className="text-white">OR</span>
-        <div className="w-full flex flex-col gap-4 pt-4">
+        <section className="w-full flex flex-col gap-4 pt-4">
           <span className="text-[14px] text-white font-medium text-center">
             Continue with
           </span>
@@ -123,13 +147,13 @@ const SignIn = () => {
               </a>
             ))}
           </div>
-        </div>
-        <div className="pt-[32px] text-white">
+        </section>
+        <section className="pt-[32px] text-white">
           Not a member?
           <a href="/register" className="text-[#ED6B4E]">
             Sign up
           </a>
-        </div>
+        </section>
       </div>
     </div>
   );
